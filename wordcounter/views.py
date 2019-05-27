@@ -7,4 +7,6 @@ def home(request):
 
 def count(request):
     fulltext = request.GET['fulltext']
-    return render(request, 'count.html')
+    word_list = fulltext.split()
+    count = len(word_list)
+    return render(request, 'count.html',{'fulltext':fulltext,'count':count})
